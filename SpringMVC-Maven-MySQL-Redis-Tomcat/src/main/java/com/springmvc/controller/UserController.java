@@ -1,5 +1,6 @@
 package com.springmvc.controller;
 import com.springmvc.service.UserService;
+import com.springmvc.service.UserServiceImpl;
 import com.springmvc.model.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class UserController {
 
     @RequestMapping("/toMyProfile.do")
     public ModelAndView toMyProfile(Model model) {
-        User user = userService.getProfile(2);
+        User user = userService.getProfile(1);
         model.addAttribute("user",user);
         System.out.println(user.getUid()+"***"+user.getUsername());
         return new ModelAndView("myProfile", model.asMap());
